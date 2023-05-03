@@ -42,3 +42,18 @@ export const signin = async (data: Partial<IUser>) => {
         return err;
     }
 };
+
+export const logout = async() => {
+    try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/logout`, {
+            headers: { "Content-Type": "application/json" },
+            method: "post",
+            credentials: "include",
+        });
+        const res = await response.json();
+        return res as any;
+    } catch (err) {
+        return err
+
+    }
+}
