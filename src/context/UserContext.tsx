@@ -5,14 +5,7 @@ import { whoami } from "@/service/auth";
 // Création de l'interface UserContextType
 interface UserContextType {
     user: IUser;
-    update: (user: {
-        email: string;
-        password: string;
-        username: string;
-        admin: boolean;
-        profileImages: string;
-        createdAt: Date
-    }) => void;
+    update: (user: any) => void;
 }
 interface UserProviderProps {
     children: React.ReactNode;
