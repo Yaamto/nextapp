@@ -9,6 +9,8 @@ import { useUser } from "@/context/UserContext";
 import { Toast } from 'primereact/toast';
 import { Button } from 'primereact/button';
 import Router, { useRouter } from 'next/router'
+import { oswald } from '@/fonts/font';
+import Image from 'next/image';
 const login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const {user, update} = useUser()
@@ -31,10 +33,11 @@ const login = () => {
       };
 
     return (
-        <div>
+        <div className=''>
            <Toast ref={toast} />
-            <form action="" onSubmit={handleSubmit(onSubmit)} className='h-screen flex flex-col justify-center items-center gap-3 w-sreen'>
-              <h1>Hello, welcome to your App !</h1>
+           <h1 className='text-4xl font-bold text-center mt-[100px]'>Hello, welcome to your App !</h1>
+            <form action="" onSubmit={handleSubmit(onSubmit)} className={`flex flex-col justify-center items-center gap-3 w-sreen mt-[100px] ${oswald.className}`} >
+              
                <span className="p-float-label">
                 <InputText type='text' id="email" {...register("email", { required: "Email is required." })} className='w-[300px] md:w-[450px]' />
                 <label htmlFor="email">Email</label>
@@ -58,9 +61,8 @@ const login = () => {
                     />
                   </div>
                  <Button type='submit' label="Submit" className='w-[300px] md:w-[450px]' />
-                 <button type="button" className='w-[300px] md:w-[450px] flex gap-3 justify-center items-center bg-white text-gray-500 py-3 rounded align-middle '><i className="pi pi-google"></i>Sign with Google</button>
+                 <button type="button" className='w-[300px] md:w-[450px] flex gap-3 justify-center items-center dark:bg-white bg-gray-100 text-gray-500 py-3 rounded align-middle'><Image src="/google.png" alt="" width={20} height={20}/>Sign with Google</button>
             </form>
-            <Link href="/test">Test</Link>
         </div> 
     );
 };
