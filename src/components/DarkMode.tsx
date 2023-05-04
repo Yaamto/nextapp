@@ -16,6 +16,7 @@ const DarkMode = () => {
              onChange={(e: SelectButtonChangeEvent) => setValue(e.value)}
              options={options}
              onClick={() => theme == "dark" ? setTheme('light'): setTheme("dark")}
+             
                />
         </div>
     );

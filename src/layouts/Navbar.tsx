@@ -40,18 +40,18 @@ const Navbar = () => {
         }
                
     ];
-    const start = <Link href="/"><h2>LOGO</h2></Link>
+    const start = <Link href="/"><h2 className=''>LOGO</h2></Link>
     const end = 
     <div className='flex gap-3'>
-        {user ? (<Button label="logout" onClick={handleLogout} className={`${oswald.className}`}/>)
-        : (<Link href="login"><Button label="login" className={`${oswald.className}`}/>
+        {user ? (<Button label="logout" onClick={handleLogout} className={`${oswald.className}`} severity="secondary"/>)
+        : (<Link href="login"><Button label="login" className={`${oswald.className}`} severity="secondary"/>
         </Link>)}
         <DarkMode />
     </div>
     return (
         <div>
              <div className={`card ${oswald.className}`} >
-            <Menubar className={`${oswald.className}`} model={items} start={start} end={end} />
+            <Menubar className={`${oswald.className}`} model={items} start={start} end={end}  />
         </div>
         </div>
     );
