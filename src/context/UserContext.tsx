@@ -4,7 +4,7 @@ import { whoami } from "@/service/auth";
 
 // Création de l'interface UserContextType
 interface UserContextType {
-    user: IUser;
+    user: IUser |null;
     update: (user: any) => void;
 }
 interface UserProviderProps {
@@ -16,11 +16,15 @@ export const UserContext = createContext<UserContextType | undefined>(undefined)
 
 // Création du composant pour passer les données à l'enfant
 export const UserProvider: React.FC<UserProviderProps> = ({ children }: any) => {
-    const [user, setUser] = useState<IUser>({} as IUser);
+    const [user, setUser] = useState<IUser | null>({} as IUser);
+    console.log(user)
     //récupère le user dans le local storage lorsque le composant est monté et le stock dans le context
     useEffect(() => {
          whoami().then((user: any) => {
-            setUser(user);
+            if(user.statusCode === 403){
+                return setUser(null)
+            }
+            return setUser(user);
         })
     }, []);
     // Fonction permettant de modifier l'utilisateur

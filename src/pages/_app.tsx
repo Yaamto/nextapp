@@ -5,12 +5,15 @@ import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import Layout from '@/layouts/Layout';
+import { ThemeProvider } from "next-themes"
 export default function App({ Component, pageProps }: AppProps) {
   return  (
   <UserProvider>
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <ThemeProvider attribute="class">
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   </UserProvider>
   )
 }

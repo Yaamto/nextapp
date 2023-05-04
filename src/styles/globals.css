@@ -3,11 +3,31 @@
 @tailwind utilities;
 
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+@layer base{
+  body {
+      @apply dark:bg-gray-950 bg-white;
+  }
+  h1{
+    font-size:unset!important;
+    font-weight: unset!important;
+  }
 }
+.p-menubar{
+  @apply dark:bg-gray-950 bg-white
+  dark:border-gray-700 border-gray-300 !important
+}
+.p-menuitem-text, .p-menubar{
+ @apply dark:text-gray-300 text-gray-700 !important
+}
+.p-menubar-root-list, .p-menuitem-link{
+  @apply dark:bg-gray-950 bg-white
+ 
+}
+.p-menuitem-link:hover{
+  @apply dark:bg-gray-800 bg-gray-100 !important
+}
+
 
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -17,12 +37,4 @@
   }
 } */
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+
