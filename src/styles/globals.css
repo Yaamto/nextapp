@@ -48,6 +48,11 @@
 .p-card .p-card-body {
   padding: 0.7rem!important;
 }
+.footer{
+height:250px;
+padding: 100px 0;
+@apply dark:bg-gray-700 bg-gray-300 mt-[100px]
+}
 /* .wave{
   @apply dark:bg-dwave bg-wave
 } */
