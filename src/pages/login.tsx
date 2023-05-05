@@ -39,7 +39,7 @@ const login = () => {
             <form action="" onSubmit={handleSubmit(onSubmit)} className={`flex flex-col justify-center items-center gap-3 w-sreen mt-[100px] ${oswald.className}`} >
               
                <span className="p-float-label">
-                <InputText type='text' id="email" {...register("email", { required: "Email is required." })} className='w-[300px] md:w-[450px]' />
+                <InputText type='text' value="test@test.fr" id="email" {...register("email", { required: "Email is required." })} className='w-[300px] md:w-[450px]' />
                 <label htmlFor="email">Email</label>
                 </span>
                 <div className='text-red-500'>
@@ -50,7 +50,7 @@ const login = () => {
                   />
                 </div>
                 <span className="p-float-label">
-                <InputText type='password' placeholder='Enter your password' id="password" {...register("password", { required: "Password is required." })} className='w-[300px] md:w-[450px]'/>
+                <InputText type='password' value="root"placeholder='Enter your password' id="password" {...register("password", { required: "Password is required." })} className='w-[300px] md:w-[450px]'/>
                 <label htmlFor="password">Password</label>
                 </span>
                 <div className='text-red-500'>
