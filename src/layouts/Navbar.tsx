@@ -56,8 +56,8 @@ const Navbar = () => {
     return (
         <div>
              <div className={`card ${roboto.className}`} >
-            <Menubar className={`${roboto.className}`} model={items} start={start} end={end}  />
-        </div>
+                <Menubar className={`${roboto.className}`} model={items} start={start} end={end}  />
+            </div>
         </div>
     );
 };
