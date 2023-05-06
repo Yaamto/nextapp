@@ -9,7 +9,7 @@ import { useUser } from "@/context/UserContext";
 import { Toast } from 'primereact/toast';
 import { Button } from 'primereact/button';
 import Router, { useRouter } from 'next/router'
-import { oswald } from '@/fonts/font';
+import { oswald, roboto } from '@/fonts/font';
 import Image from 'next/image';
 const login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -33,15 +33,14 @@ const login = () => {
       };
 
     return (
-        <div className=''>
+        <div className='pb-32'>
            <Toast ref={toast} />
            <h1 className='text-4xl font-bold text-center mt-[100px]'>Hello, welcome to your App !</h1>
             <form action="" onSubmit={handleSubmit(onSubmit)} className={`flex flex-col justify-center items-center gap-3 w-sreen mt-[100px] ${oswald.className}`} >
-              
-               <span className="p-float-label">
-                <InputText type='text' value="test@test.fr" id="email" {...register("email", { required: "Email is required." })} className='w-[300px] md:w-[450px]' />
+               <div className="flex flex-col gap-2">
                 <label htmlFor="email">Email</label>
-                </span>
+                <InputText type='text' value="test@test.fr" placeholder='Enter your email' id="email" {...register("email", { required: "Email is required." })} className='w-[300px] md:w-[450px]' />
+                </div>
                 <div className='text-red-500'>
                   <ErrorMessage
                     errors={errors}
@@ -49,10 +48,11 @@ const login = () => {
                     render={({ message }) => <p>{message}</p>}
                   />
                 </div>
-                <span className="p-float-label">
-                <InputText type='password' value="root"placeholder='Enter your password' id="password" {...register("password", { required: "Password is required." })} className='w-[300px] md:w-[450px]'/>
+                <div className="flex flex-col gap-2">
                 <label htmlFor="password">Password</label>
-                </span>
+                <InputText type='password' value="root" placeholder='Enter your password' id="password" {...register("password", { required: "Password is required." })} className='w-[300px] md:w-[450px]'/>
+                  <p className={`text-[15px] ${roboto.className}`}>Not register yet ? Do it <Link href="/register" className='text-blue-400'>here</Link></p>
+                </div>
                 <div className='text-red-500'>
                   <ErrorMessage
                     errors={errors}

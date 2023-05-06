@@ -42,6 +42,25 @@ export const signin = async (data: Partial<IUser>) => {
         return err;
     }
 };
+export const signup = async(username: string, email: string, password: string, file: File) => {
+    try {
+        const formData = new FormData()
+        formData.append('image', file)
+        formData.append('username', username)
+        formData.append('email', email)
+        formData.append('password', password)
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/signup`, {
+            method: "POST",
+            credentials: "include",
+            body: formData,
+        });
+        const res = await response.json();
+        return res as any;
+    } catch (err) {
+        return err
+    }
+}
+
 
 export const logout = async() => {
     try {
