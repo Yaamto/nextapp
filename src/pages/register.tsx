@@ -47,6 +47,7 @@ const register = () => {
     return (
         <div>
             <Toast ref={toast} />
+           <h1 className='text-4xl font-bold text-center mt-[100px]'>Hello, welcome to your App !</h1>
              <form action="" onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data" className={`flex flex-col justify-center items-center gap-3 w-sreen mt-[100px] ${oswald.className}`} >
              <div className="flex flex-col gap-2">
                 <label htmlFor="email">Email</label>
