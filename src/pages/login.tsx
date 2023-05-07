@@ -39,7 +39,7 @@ const login = () => {
             <form action="" onSubmit={handleSubmit(onSubmit)} className={`flex flex-col justify-center items-center gap-3 w-sreen mt-[100px] ${oswald.className}`} >
                <div className="flex flex-col gap-2">
                 <label htmlFor="email">Email</label>
-                <InputText type='text' value="test@test.fr" placeholder='Enter your email' id="email" {...register("email", { required: "Email is required." })} className='w-[300px] md:w-[450px]' />
+                <InputText type='text' placeholder='Enter your email' id="email" {...register("email", { required: "Email is required." })} className='w-[300px] md:w-[450px]' />
                 </div>
                 <div className='text-red-500'>
                   <ErrorMessage

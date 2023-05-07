@@ -14,7 +14,8 @@ import { roboto } from '@/fonts/font';
 const Navbar = () => {
     const {user, update} = useUser()
     const router = useRouter()
-  
+    const currentRoute = router.pathname;
+    
     const handleLogout = async() => {
         try {
              logout().then(() => {

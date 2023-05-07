@@ -17,7 +17,6 @@ export const UserContext = createContext<UserContextType | undefined>(undefined)
 // Création du composant pour passer les données à l'enfant
 export const UserProvider: React.FC<UserProviderProps> = ({ children }: any) => {
     const [user, setUser] = useState<IUser | null>({} as IUser);
-    console.log(user)
     //récupère le user dans le local storage lorsque le composant est monté et le stock dans le context
     useEffect(() => {
          whoami().then((user: any) => {

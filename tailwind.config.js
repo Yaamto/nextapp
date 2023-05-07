@@ -22,6 +22,7 @@ module.exports = {
       },
       backgroundColor: {
         'dmode': '#242424',
+        'profile': '#1A1A1A',
       }
     },
   },

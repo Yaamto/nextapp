@@ -10,7 +10,8 @@ const DarkMode = () => {
 
     const [checked, setChecked] = useState<boolean>(false);
     useEffect(() => {
-        setChecked(theme === "dark" ? true : false);
+        setTheme(theme === "dark" ? "dark" : "light")
+        setChecked(theme === "dark" ? true : false )
     }, []);
     return (
         <div className="card flex justify-content-center mx-5">

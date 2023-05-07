@@ -53,6 +53,19 @@ height:250px;
 padding: 100px 0;
 @apply dark:bg-gray-700 bg-gray-300 mt-[100px]
 }
+.item-detail-admin{
+  width: 80px !important;
+  height: 80px !important;
+}
+.item-detail-member{
+  width: 50px !important;
+  height: 50px !important;
+}
+.map-detail{
+  width: 150px !important;
+  height: 80px !important;
+}
+
 /* .wave{
   @apply dark:bg-dwave bg-wave
 } */
