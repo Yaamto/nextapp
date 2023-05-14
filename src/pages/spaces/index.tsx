@@ -16,9 +16,9 @@ import SelectedSpace from '@/components/spaces/SelectedSpace';
 
  const Space = ({spaces, maps}: any) => {
     const {user, update} = useUser()
-    const [selectedSpace, setSelectedSpace] = useState<ISpace | null>(null);
-    const mySpaces = spaces.map((space: any) =>{ return {name: space.name, id: space.id, value: space}})
-
+    const [selectedSpace, setSelectedSpace] = useState<ISpace | null>(spaces ? spaces[0]: null);
+    const mySpaces = spaces && spaces.map((space: any) =>{ return {name: space.name, id: space.id, value: space}})
+    console.log(spaces)
     if(!user){
         return <DefaultSpace />
     }
@@ -34,11 +34,9 @@ import SelectedSpace from '@/components/spaces/SelectedSpace';
                 <Button label="Create" icon="pi pi-plus" />               
             </div> 
             {!selectedSpace ? ( <h2>Select A space</h2> ) : (
-                   <SelectedSpace selectedSpace={selectedSpace} />
+                   <SelectedSpace selectedSpace={selectedSpace} maps={maps} />
             )}  
-            <div>
-                <Maps maps={maps} />    
-            </div>               
+                  
         </div>
     );
 };
@@ -51,7 +49,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             props: { spaces: [] }
         }
     }
-    const spaces = await getUserSpaces(cookie)
+    const spaces: any = await getUserSpaces(cookie)
+    if(spaces.message){
+        return {
+            props: { spaces: [] }
+        }
+    }
+        
     const maps = await getMaps()
     return {
          props: { spaces, maps } 

@@ -1,9 +1,13 @@
 import { getUserSpaces } from '@/service/space';
+import { IMap } from '@/interfaces/map';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import Maps from './Maps';
+import Map from './Map';
 
-const SelectedSpace = ({spaces, selectedSpace}: any) => {
+const SelectedSpace = ({spaces, selectedSpace, maps}: any) => {
+
     return (
         <div>
             <div className='mt-10'>
@@ -11,6 +15,7 @@ const SelectedSpace = ({spaces, selectedSpace}: any) => {
                        <div className='self-start ml-4'>
                        <h2 className='font-bold text-3xl'>{selectedSpace?.name}</h2>
                        <p>{selectedSpace?.description}</p>
+                       <p className='font-bold text-xl mt-2'>Total utilities: {selectedSpace.utilities?.length}</p>
                        </div>
                        Admin : 
                        <div className='creator flex items-center gap-7 p-4 rounded-xl shadow-md dark:bg-profile'>
@@ -31,7 +36,7 @@ const SelectedSpace = ({spaces, selectedSpace}: any) => {
                     </div> 
                     <div>
                         <h2 className='font-bold text-3xl'>Members</h2>
-
+                        <p className='font-bold text-xl mt-2'>Total members: {selectedSpace?.users.length}</p>
                         <div className='flex gap-7 mt-5 flex-wrap'>
                             {selectedSpace?.users.map((member: any) => {
                             return <div className='flex items-center gap-7 dark:bg-profile shadow-md rounded-xl px-4 py-2'>
@@ -51,9 +56,18 @@ const SelectedSpace = ({spaces, selectedSpace}: any) => {
                                     </div>
                                 })}
                         </div>  
-                    </div> 
-                             
-               </div>   
+                    </div>     
+               </div>
+                <div>
+                    <div className='mt-[70px]'>
+                        <h1 className='text-4xl font-bold'>Maps</h1>
+                        <div className='flex gap-5 items-center justify-center mt-10 flex-wrap'>
+                            {maps && maps.map((map: IMap) => {                                
+                                return <Map map={map} selectedSpace={selectedSpace}  />
+                            })}
+                        </div>
+                    </div>
+                </div>        
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import { IUser } from "./user";
+import { IUtility } from "./utility";
 
 export interface ISpace {
     id: string;
@@ -6,4 +7,5 @@ export interface ISpace {
     description: string;
     creator: IUser;
     users: IUser[];
+    utilities: IUtility[];
 }
