@@ -8,4 +8,5 @@ export interface ISpace {
     creator: IUser;
     users: IUser[];
     utilities: IUtility[];
+    mapUtilityCounts: any;
 }

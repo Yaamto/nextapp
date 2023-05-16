@@ -65,7 +65,19 @@ padding: 100px 0;
   width: 150px !important;
   height: 80px !important;
 }
-
+.map-default{
+  width: 500px !important;
+  height: 300px !important;
+}
+.p-button:focus {
+  box-shadow: none!important;
+}
+.p-focus, .p-menuitem-link:focus, .p-button:focus {
+  box-shadow: none!important;
+}
+.p-paginator{
+  @apply dark:bg-dmode 
+}
 /* .wave{
   @apply dark:bg-dwave bg-wave
 } */
